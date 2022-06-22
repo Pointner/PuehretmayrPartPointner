@@ -17,36 +17,40 @@ public class ImageScaler {
         System.out.println("start");
         int i = 0;
 
-        m.scaleImages(Objects.requireNonNull(new File("pictures/folder1").listFiles()));
-        m.scaleImages(Objects.requireNonNull(new File("pictures/folder2").listFiles()));
+        m.scaleImages(Objects.requireNonNull(new File("pictures/Gorilla").listFiles()));
+        //m.scaleImages(Objects.requireNonNull(new File("pictures/Schimpanse").listFiles()));
+
 
 
     }
     public void scaleImage(File f) throws IOException {
-        BufferedImage bufferedImage = ImageIO.read(f);
-        Image image = bufferedImage.getScaledInstance(500, 500, Image.SCALE_DEFAULT);
 
-        ImageIcon icon = new ImageIcon(image);
-        JFrame frame = new JFrame();
-        frame.setLayout(new FlowLayout());
-        frame.setSize(500, 500);
+            BufferedImage bufferedImage = ImageIO.read(f);
+            if(bufferedImage != null) {
+                Image image = bufferedImage.getScaledInstance(500, 500, Image.SCALE_DEFAULT);
 
-        JLabel jLabel = new JLabel();
-        jLabel.setIcon(icon);
-        frame.add(jLabel);
-        System.out.println("Image scaled 1");
+                ImageIcon icon = new ImageIcon(image);
+                JFrame frame = new JFrame();
+                frame.setLayout(new FlowLayout());
+                frame.setSize(500, 500);
 
-        try {
-            BufferedImage outputImage = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_INT_RGB);
-            outputImage.getGraphics().drawImage(image, 0, 0, null);
-            new File(f.getAbsolutePath().substring(0, f.getAbsolutePath().lastIndexOf("/")) + "-scale//").mkdirs();
-            File outputfile = new File(f.getAbsolutePath().substring(0, f.getAbsolutePath().lastIndexOf("/")) + "-scale/" + f.getName());
-            ImageIO.write(outputImage, "jpg", outputfile);
+                JLabel jLabel = new JLabel();
+                jLabel.setIcon(icon);
+                frame.add(jLabel);
+                System.out.println("Image scaled 1");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                try {
+                    BufferedImage outputImage = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_INT_RGB);
+                    outputImage.getGraphics().drawImage(image, 0, 0, null);
+                    new File(f.getAbsolutePath().substring(0, f.getAbsolutePath().lastIndexOf("/")) + "-scale//").mkdirs();
+                    File outputfile = new File(f.getAbsolutePath().substring(0, f.getAbsolutePath().lastIndexOf("/")) + "-scale/" + f.getName());
+                    ImageIO.write(outputImage, "jpg", outputfile);
 
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
     }
 
     public void scaleImages(File[] files) {
