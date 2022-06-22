@@ -6,13 +6,14 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.Buffer;
 
 public class ImageScaler {
     public static void main(String[] args) throws IOException {
         ImageScaler m = new ImageScaler();
         System.out.println("start");
 
-        File[] filesfolder1 = new File("/Users/paula/Desktop/Teachable-Machine/Scaler/Teachablemachinescaler/pictures/").listFiles();
+        File[] filesfolder1 = new File("/Users/paula/Desktop/Teachable-Machine/Scaler/Teachablemachinescaler/pictures/scaledfolder1").listFiles();
         for (File file : filesfolder1) {
             if (file.isDirectory())
                 for (File f : file.listFiles()) {
@@ -21,8 +22,8 @@ public class ImageScaler {
                     Image imagefolder1 = m.scaleImage(f);
                     try {
 
-                        ImageIO.write((BufferedImage)imagefolder1,"jpeg",f);  // ignore returned boolean
-                        System.out.println("Image scaled");
+                        File outputfile = new File("image.jpg");
+                        ImageIO.write((BufferedImage)imagefolder1, "jpg", outputfile);
                     } catch(IOException e) {
 
                     }
