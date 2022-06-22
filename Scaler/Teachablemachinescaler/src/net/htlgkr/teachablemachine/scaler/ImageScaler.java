@@ -17,7 +17,8 @@ public class ImageScaler {
         System.out.println("start");
         int i = 0;
 
-        m.scaleImages(Objects.requireNonNull(new File("pictures/Gorilla").listFiles()));
+        //m.scaleImages(Objects.requireNonNull(new File("pictures/Gorilla").listFiles()));
+        m.scaleImages(Objects.requireNonNull(new File("pictures/Schimpanse").listFiles()));
 
 
 
