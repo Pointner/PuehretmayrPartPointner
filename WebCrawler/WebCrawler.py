@@ -18,7 +18,7 @@ def search(query):
    
     gis = GoogleImagesSearch('AIzaSyB2wwkOu9uczr6l1Xx_9TbsH1AAiyVfjdw', 'b4b1b01e9779743b6')
     gis.search(search_params=_search_params, path_to_dir='path/'+query+'/')
-   
+
  
 
 if __name__ == '__main__':
