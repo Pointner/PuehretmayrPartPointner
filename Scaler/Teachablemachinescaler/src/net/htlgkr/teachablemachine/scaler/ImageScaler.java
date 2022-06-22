@@ -12,12 +12,11 @@ public class ImageScaler {
 
         ImageScaler m = new ImageScaler();
         m.scaleImage();
-
-
     }
-    public void scaleImage() throws IOException {
-        BufferedImage bufferedImage = ImageIO.read(new File("/Users/paula/Desktop/Teachable-Machine/Scaler/Teachablemachinescaler/pictures/monkey.jpeg"));
-        Image image = bufferedImage.getScaledInstance(500, 500, Image.SCALE_DEFAULT);
+        public void scaleImage() throws IOException {
+            BufferedImage bufferedImage = ImageIO.read(new File("/Users/paula/Desktop/Teachable-Machine/Scaler/Teachablemachinescaler/pictures/monkey.jpeg"));
+
+            Image image = bufferedImage.getScaledInstance(500, 500, Image.SCALE_DEFAULT);
 
         ImageIcon icon = new ImageIcon(image);
         JFrame frame = new JFrame();
@@ -30,4 +29,7 @@ public class ImageScaler {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-}
+
+
+
+    }
